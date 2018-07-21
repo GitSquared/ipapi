@@ -1,0 +1,17 @@
+{
+  "name": "ipapi",
+  "version": "1.0.0",
+  "description": "Get information about your IP address from an API call.",
+  "main": "api.js",
+  "scripts": {
+    "start": "node api.js",
+    "deploy": "now && now alias",
+    "clean": "now rm ipapi --safe --yes"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+github.com/GitSquared/ipapi.git"
+  },
+  "author": "Squared <squared@codebrew.fr> (https://squared.codebrew.fr)",
+  "license": "WTFPL"
+}
