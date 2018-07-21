@@ -4,7 +4,7 @@ const app = express();
 const geolite2 = require("geolite2");
 const maxmind = require("maxmind");
 
-const geolookup = maxmind.open(geolite2.paths.city);
+const geolookup = maxmind.openSync(geolite2.paths.city);
 
 app.get('/', (req, res) => {
     if (req.ip) {
