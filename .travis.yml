@@ -14,7 +14,7 @@ deploy:
       all_branches: true
       master: false
   - provider: script
-    script: now --public --token $NOW_TOKEN && now alias --token $NOW_TOKEN
+    script: now --public --token $NOW_TOKEN && now alias --token $NOW_TOKEN && now rm ipapi --safe --yes --token $NOW_TOKEN
     skip_cleanup: true
     on:
       master: true
