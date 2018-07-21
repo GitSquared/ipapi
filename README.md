@@ -3,5 +3,5 @@ A simple API to get your IP address & location programmatically. Written in Node
 
 To deploy this app yourself, simply run:
 ```
-now GitSquared/IPapi
+now GitSquared/ipapi
 ```
