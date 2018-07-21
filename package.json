@@ -5,6 +5,7 @@
   "main": "api.js",
   "scripts": {
     "start": "node api.js",
+    "test": "echo 'No test yet!'",
     "deploy": "now && now alias",
     "clean": "now rm ipapi --safe --yes"
   },
@@ -13,5 +14,8 @@
     "url": "git+github.com/GitSquared/ipapi.git"
   },
   "author": "Squared <squared@codebrew.fr> (https://squared.codebrew.fr)",
-  "license": "WTFPL"
+  "license": "WTFPL",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
