@@ -1,25 +1,35 @@
-const express = require("express");
-const app = express();
-
 const geolite2 = require("geolite2");
 const maxmind = require("maxmind");
 
 const geolookup = maxmind.openSync(geolite2.paths.city);
 
-app.get('/', (req, res) => {
-    if (req.ip) {
-        console.log("Served a request");
-        let city = geolookup.get(req.ip);
-
-        res.status(200).json({
-            ip: req.ip,
-            city
-        });
+module.exports = (req, res) => {
+    if (req.url !== "/") {
+        res.setHeader("content-type", "text/plain; charset=utf-8");
+        res.writeHead(404);
+        res.end("404 Not Found");
     } else {
-        res.status(400).json({error: "Could'nt retrieve IP address. Are you using a proxy?"});
-    }
-});
+        let ip;
+        req.headers['x-forwarded-for'] ? ip = req.headers['x-forwarded-for'] : ip = req.connection.remoteAddress;
 
-app.listen(80, () => {
-    console.log("IPapi running!");
-});
+        ip = ip.split(",")[0];
+
+        if (maxmind.validate(ip) && !ip.endsWith("127.0.0.1")) {
+            console.log("Served a request");
+            let geo = geolookup.get(ip);
+
+            res.setHeader("Content-Type", "application/json; charset=utf-8");
+            res.writeHead(200);
+            res.end(JSON.stringify({
+                ip,
+                geo,
+                time: Math.round(Date.now()/1000)
+            }));
+        } else {
+            console.log("Error: Bad IP");
+            res.setHeader("Content-Type", "text/plain; charset=utf-8");
+            res.writeHead(400);
+            res.end("Bad IP");
+        }
+    }
+};

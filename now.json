@@ -1,4 +1,7 @@
 {
     "name": "ipapi",
-    "alias": "ipinfo.now.sh"
+    "alias": "ipinfo.now.sh",
+    "env": {
+        "NODE_ENV": "production"
+    }
 }
