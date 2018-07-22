@@ -1,7 +1,7 @@
 {
   "name": "ipapi",
   "version": "1.0.0",
-  "description": "Get information about your IP address from an API call.",
+  "description": "Get geoip information with an API call.",
   "main": "api.js",
   "scripts": {
     "start": "micro",
