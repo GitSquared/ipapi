@@ -11,6 +11,7 @@ script:
 before_deploy:
   - echo -e "machine github.com\n  login $GITHUB_TOKEN" > ~/.netrc
   - git lfs pull
+  - curl -sSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
   - sudo add-apt-repository "deb https://deb.nodesource.com/node_8.x $(lsb_release -s -c) main" -y
   - sudo apt-get update -q
   - sudo apt-get install nodejs -y
