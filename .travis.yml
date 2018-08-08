@@ -1,20 +1,42 @@
-language: node_js
-node_js:
-  - "node"
-cache:
-  directories:
-    - "node_modules"
-script: npm test
-before_deploy: npm install now --no-save
+os: linux
+language: rust
+rust:
+  - stable
+cache: cargo
+git:
+    lfs_skip_smudge: true
+before_script:
+  - echo -e "machine github.com\n  login $GITHUB_TOKEN" > ~/.netrc
+  - git lfs pull
+script:
+  - cargo build --release
+  - cargo test
+before_deploy:
+  - curl -sSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
+  - sudo add-apt-repository "deb https://deb.nodesource.com/node_8.x $(lsb_release -s -c) main" -y
+  - sudo apt-get update -q
+  - sudo apt-get install nodejs -y
+  - sudo npm i -g npm
+  - sudo npm i -g --unsafe-perm now
 deploy:
   - provider: script
     script: now --public --token $NOW_TOKEN
     skip_cleanup: true
     on:
       all_branches: true
-      master: false
+      tags: false
+      condition: $TRAVIS_RUST_VERSION = "stable"
   - provider: script
-    script: now --public --token $NOW_TOKEN && now alias --token $NOW_TOKEN && now rm ipapi --safe --yes --token $NOW_TOKEN
+    script: now --token $NOW_TOKEN && now alias --token $NOW_TOKEN && now rm ipapi --safe --yes --token $NOW_TOKEN
     skip_cleanup: true
     on:
-      master: true
+      branch: master
+      tags: true
+      condition: $TRAVIS_RUST_VERSION = "stable"
+  - provider: releases
+    skip_cleanup: true
+    file: target/release/ipapi
+    on:
+      branch: master
+      tags: true
+      condition: $TRAVIS_RUST_VERSION = "stable"

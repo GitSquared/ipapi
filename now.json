@@ -1,7 +1,14 @@
 {
     "name": "ipapi",
+    "type": "npm",
+    "public": false,
     "alias": "ipinfo.now.sh",
+    "files": [
+        "target/release/ipapi",
+        "GeoLite2-City",
+        "package.json"
+    ],
     "env": {
-        "NODE_ENV": "production"
+        "RUST_BACKTRACE": "1"
     }
 }

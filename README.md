@@ -1,10 +1,9 @@
 # IPapi
 
-[![Build Status](https://travis-ci.org/GitSquared/ipapi.svg?branch=master)](https://travis-ci.org/GitSquared/ipapi) [![Greenkeeper badge](https://badges.greenkeeper.io/GitSquared/ipapi.svg)](https://greenkeeper.io/) [![Known Vulnerabilities](https://snyk.io/test/github/GitSquared/ipapi/badge.svg?targetFile=package.json)](https://snyk.io/test/github/GitSquared/ipapi?targetFile=package.json)
+[![Latest version](https://badgen.net/github/release/GitSquared/ipapi/stable)](https://github.com/GitSquared/ipapi/releases) [![Build Status](https://travis-ci.org/GitSquared/ipapi.svg?branch=master)](https://travis-ci.org/GitSquared/ipapi) [![License](https://badgen.net/github/license/micromatch/micromatch)](https://github.com/GitSquared/ipapi/blob/master/LICENSE) [![Deploy on Now](https://badgen.net/badge/%E2%96%B2/$%20now%20GitSquared%2Fipapi/222)](https://zeit.co/now)
 
-A simple API to get your IP address & location programmatically. Written in Node.js, deployed on Now.
+![Status](https://badgen.net/uptime-robot/status/m780808113-bb87869d57d6e78dcf1163a3) ![Uptime last month](https://badgen.net/uptime-robot/month/m780808113-bb87869d57d6e78dcf1163a3) ![Response time](https://badgen.net/uptime-robot/response/m780808113-bb87869d57d6e78dcf1163a3)
 
-To deploy this app yourself, simply run:
-```
-now GitSquared/ipapi
-```
+A simple API to get your IP address & location programmatically. Written in Rust, deployed on Now.
+
+*warning: this repository makes use of [Git LFS](https://git-lfs.github.com) to keep track of the geoip database file.*
