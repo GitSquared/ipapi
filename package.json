@@ -1,27 +1,23 @@
 {
   "name": "ipapi",
-  "version": "1.0.0",
-  "description": "Get geoip information with an API call.",
-  "main": "api.js",
+  "version": "2.0.0",
+  "description": "Placeholder package.json, this app is now written in Rust",
+  "main": "none.js",
   "scripts": {
-    "start": "micro",
-    "dev": "micro-dev",
-    "test": "echo 'No test yet!'",
+    "start": "./target/release/ipapi",
+    "build": "echo \"Build handled by Travis.\"",
+    "test": "now",
     "deploy": "now && now alias",
     "clean": "now rm ipapi --safe --yes"
   },
   "repository": {
     "type": "git",
-    "url": "git+github.com/GitSquared/ipapi.git"
+    "url": "git+https://github.com/GitSquared/ipapi.git"
   },
   "author": "Squared <squared@codebrew.fr> (https://squared.codebrew.fr)",
   "license": "WTFPL",
-  "dependencies": {
-    "geolite2": "^1.3.0",
-    "maxmind": "^2.7.0",
-    "micro": "^9.3.2"
+  "bugs": {
+    "url": "https://github.com/GitSquared/ipapi/issues"
   },
-  "devDependencies": {
-    "micro-dev": "^3.0.0"
-  }
+  "homepage": "https://github.com/GitSquared/ipapi#readme"
 }
