@@ -23,7 +23,8 @@ deploy:
     skip_cleanup: true
     on:
       all_branches: true
-      master: false
+      tags: false
+      condition: $TRAVIS_RUST_VERSION = "stable"
   - provider: script
     script: now --token $NOW_TOKEN && now alias --token $NOW_TOKEN && now rm ipapi --safe --yes --token $NOW_TOKEN
     skip_cleanup: true
