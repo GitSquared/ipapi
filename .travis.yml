@@ -16,7 +16,7 @@ before_deploy:
   - sudo apt-get update -q
   - sudo apt-get install nodejs -y
   - sudo npm i -g npm
-  - npm install now --no-save
+  - sudo npm i -g now --no-save
 deploy:
   - provider: script
     script: now --public --token $NOW_TOKEN
@@ -32,6 +32,7 @@ deploy:
       tags: true
       condition: $TRAVIS_RUST_VERSION = "stable"
   - provider: releases
+    skip_cleanup: true
     file: target/release/ipapi
     on:
       branch: master
