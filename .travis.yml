@@ -16,7 +16,7 @@ before_deploy:
   - sudo apt-get update -q
   - sudo apt-get install nodejs -y
   - sudo npm i -g npm
-  - sudo npm i -g now --no-save
+  - sudo npm i -g --unsafe-perm now
 deploy:
   - provider: script
     script: now --public --token $NOW_TOKEN
