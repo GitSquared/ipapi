@@ -62,7 +62,7 @@ fn ip_request_handler(ip: IpAddr, reader: &maxminddb::Reader) -> Response {
             "geo": city,
             "time": timestamp.as_secs(),
             "api_version": "2.0.0"
-        }));
+        })).with_unique_header("cache-control", "s-maxage=172800, maxage=0");
     }
 }
 
