@@ -1,5 +1,6 @@
 {
     "name": "ipapi",
+    "version": 1,
     "type": "npm",
     "public": false,
     "alias": "ipinfo.now.sh",
