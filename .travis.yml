@@ -20,7 +20,7 @@ before_deploy:
   - sudo npm i -g --unsafe-perm now
 deploy:
   - provider: script
-    script: now --public --token $NOW_TOKEN
+    script: now --public --target staging --token $NOW_TOKEN
     skip_cleanup: true
     on:
       all_branches: true
@@ -36,7 +36,7 @@ deploy:
       tags: true
       condition: $TRAVIS_RUST_VERSION = "stable"
   - provider: script
-    script: now --token $NOW_TOKEN && now alias --token $NOW_TOKEN && now rm ipapi --safe --yes --token $NOW_TOKEN
+    script: now  --target production --token $NOW_TOKEN && now rm ipapi --safe --yes --token $NOW_TOKEN
     skip_cleanup: true
     on:
       branch: master
