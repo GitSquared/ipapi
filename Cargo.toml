@@ -1,0 +1,8 @@
+[package]
+name = "ipapi"
+version = "4.0.0"
+authors = ["Gabriel SAILLARD <gabriel@saillard.dev> (https://gaby.dev)"]
+license = "WTFPL"
+
+[dependencies]
+walkdir = "2"

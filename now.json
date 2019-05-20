@@ -1,23 +1,15 @@
 {
     "name": "ipapi",
-    "version": 2,
+    "version": 1,
+    "type": "npm",
     "public": false,
     "alias": "ipinfo.now.sh",
-    "regions": ["bru", "sfo", "hnd"],
-    "github": {
-    	"enabled": true,
-    	"silent": true
-    },
-    "builds": [
-      {
-        "src": "index.js",
-        "use": "@now/node"
-      }
-    ],
-    "routes": [
-    	{ "src": "/(?<ip>[^/]+)", "dest": "/" }
+    "files": [
+        "target/release/ipapi",
+        "GeoLite2-City",
+        "package.json"
     ],
     "env": {
-    	"DATABASE_URL": "@ipapi-db-url"
+        "RUST_BACKTRACE": "1"
     }
 }

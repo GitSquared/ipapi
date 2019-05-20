@@ -1,30 +1,23 @@
 {
   "name": "ipapi",
-  "version": "4.0.0",
-  "description": "GeoIP API",
-  "main": "index.js",
+  "version": "3.0.0",
+  "description": "Placeholder package.json, this app is now written in Rust",
+  "main": "none.js",
   "scripts": {
-    "start": "now dev",
-    "test": "xo",
-    "deploy": "now --target staging",
+    "start": "./target/release/ipapi",
+    "build": "echo \"Build handled by Travis.\"",
+    "test": "now",
+    "deploy": "now && now alias",
     "clean": "now rm ipapi --safe --yes"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GitSquared/ipapi.git"
   },
-  "author": "Gabriel 'Squared' SAILLARD <gabriel@saillard.dev> (https://gaby.dev)",
+  "author": "Squared <squared@codebrew.fr> (https://squared.codebrew.fr)",
   "license": "WTFPL",
   "bugs": {
     "url": "https://github.com/GitSquared/ipapi/issues"
   },
-  "homepage": "https://github.com/GitSquared/ipapi#readme",
-  "devDependencies": {
-    "now": "^15.2.0",
-    "xo": "^0.24.0"
-  },
-  "dependencies": {
-    "ip-address": "^5.9.0",
-    "mongodb": "^3.2.5"
-  }
+  "homepage": "https://github.com/GitSquared/ipapi#readme"
 }
